@@ -24,8 +24,9 @@
                         <div class="row g-3">
                             <div class="col-md-12">
                                 <label for="fName" class="form-label fw-semibold text-secondary">First Name</label>
-                                <input type="text" name="fName" id="fName" class="form-control bg>
-                                <p class=" error_container"></p>
+                                <input type="text" name="fName" id="fName" class="form-control bg-light">
+                                <p id="mark" class="error_container"></p>
+
                             </div>
                             <div class="col-md-12">
                                 <label for="Mname" class="form-label fw-semibold text-secondary">Middle Name</label>
@@ -63,13 +64,13 @@
                         <div class="row g-3">
                             <div class="col-md-12">
                                 <label for="email" class="form-label fw-semibold text-secondary">Email Address</label>
-                                <input type="email" name="email" class="form-control bg-light">
+                                <input type="text" id="email" name="email" class="form-control bg-light">
                                 <p class="error_container"></p>
                             </div>
                             <div class="col-md-12">
                                 <label for="phone" class="form-label fw-semibold text-secondary">Telephone
                                     Number</label>
-                                <input type="tel" name="phone" class="form-control bg-light">
+                                <input type="tel" id="phone" name="phone" class="form-control bg-light">
                                 <p class="error_container"></p>
                             </div>
                         </div>
@@ -116,7 +117,8 @@
                             <button type="button" id="back2" class="btn btn-outline-secondary px-4">Back</button>
                             <div class="action_buttons">
                                 <button type="reset" class="btn btn-light border me-2">Reset</button>
-                                <button type="submit" id="submit_bttn" class="btn btn-success px-4 fw-bold">Submit
+                                <button type="submit" id="submit_bttn" name="submit_bttn"
+                                    class="btn btn-success px-4 fw-bold">Submit
                                     Form</button>
                             </div>
                         </div>
