@@ -2,6 +2,7 @@
 
 $json = file_get_contents("php://input");  // Taga-salo ng JSON defaullt yan 
 $data = json_decode($json, true);
+
 // Translator ni PHP default din pang decode ng json object(js) --> json(php)
 
 // Makikita mo ang laman sa console kung papalitan mo ang JS mo ng .text() pansamantala
