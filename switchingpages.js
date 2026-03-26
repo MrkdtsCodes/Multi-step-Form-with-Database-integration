@@ -6,7 +6,11 @@ let next1 = document.getElementById("next1");
 let next2 = document.getElementById("next2");
 let back1 = document.getElementById("back1");
 let back2 = document.getElementById("back2");
+<<<<<<< HEAD
 let form = document.getElementById("user_form");
+=======
+let submitbtn = document.getElementById("submit_bttn");
+>>>>>>> lhoopa_account/main
 
 next1.addEventListener("click", (event) => {
   event.preventDefault();
@@ -98,6 +102,11 @@ next2.addEventListener("click", (event) => {
     phone: phone_inpt.value,
   };
 
+<<<<<<< HEAD
+=======
+  console.table(obj_vals);
+
+>>>>>>> lhoopa_account/main
   //turning it into JSon
   let rawJson = JSON.stringify(obj_vals);
 
@@ -161,7 +170,12 @@ back2.addEventListener("click", () => {
   stage2.classList.add("d-block");
 });
 
+<<<<<<< HEAD
 form.addEventListener("click", () => {
+=======
+submitbtn.addEventListener("click", (event) => {
+  event.preventDefault();
+>>>>>>> lhoopa_account/main
   let street_inpt = document.getElementById("street");
   let barangay_inpt = document.getElementById("barangay");
   let city_inpt = document.getElementById("city");
@@ -169,6 +183,10 @@ form.addEventListener("click", () => {
   let zip_inpt = document.getElementById("zipCode");
 
   let objData = {
+<<<<<<< HEAD
+=======
+    form_stage: 3,
+>>>>>>> lhoopa_account/main
     street: street_inpt.value,
     barangay: barangay_inpt.value,
     city: city_inpt.value,
@@ -176,6 +194,11 @@ form.addEventListener("click", () => {
     zipCode: zip_inpt.value,
   };
 
+<<<<<<< HEAD
+=======
+  console.table(objData);
+
+>>>>>>> lhoopa_account/main
   //turning it into JSon
   let rawJson = JSON.stringify(objData);
 
@@ -190,7 +213,11 @@ form.addEventListener("click", () => {
   })
     .then((response) => response.json())
     .then((errorbucks) => {
+<<<<<<< HEAD
       let error_container = stage2.querySelectorAll(".error_container");
+=======
+      let error_container = stage3.querySelectorAll(".error_container");
+>>>>>>> lhoopa_account/main
 
       error_container.forEach((containers) => {
         ///alisin lahat laman ng error values containers
@@ -211,6 +238,10 @@ form.addEventListener("click", () => {
           });
         });
       } else if (errorbucks.length == 0) {
+<<<<<<< HEAD
+=======
+        console.log("thank you for submitting");
+>>>>>>> lhoopa_account/main
       }
     })
     .catch((error) => console.error("May error:", error));

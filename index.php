@@ -70,7 +70,7 @@
                             <div class="col-md-12">
                                 <label for="phone" class="form-label fw-semibold text-secondary">Telephone
                                     Number</label>
-                                <input type="tel" id="phone" name="phone" class="form-control bg-light">
+                                <input type="text" id="phone" name="phone" class="form-control bg-light">
                                 <p class="error_container" name="phone"></p>
                             </div>
                         </div>
@@ -87,29 +87,29 @@
                             <div class="col-12">
                                 <label for="street" class="form-label fw-semibold text-secondary">Street Address</label>
                                 <input type="text" name="street" id="street" class="form-control bg-light">
-                                <p class="error_container"></p>
+                                <p class="error_container" name="street"></p>
                             </div>
                             <div class="col-md-6">
                                 <label for="barangay" class="form-label fw-semibold text-secondary">Barangay</label>
                                 <input type="text" name="barangay" id="barangay" class="form-control bg-light">
-                                <p class="error_container"></p>
+                                <p class="error_container" name="barangay"></p>
                             </div>
                             <div class="col-md-6">
                                 <label for="city" class="form-label fw-semibold text-secondary">City /
                                     Municipality</label>
                                 <input type="text" name="city" id="city" class="form-control bg-light">
-                                <p class="error_container"></p>
+                                <p class="error_container" name="city"></p>
                             </div>
                             <div class="col-md-6">
                                 <label for="province" class="form-label fw-semibold text-secondary">Province</label>
                                 <input type="text" name="province" id="province" class="form-control bg-light">
-                                <p class="error_container"></p>
+                                <p class="error_container" name="province"></p>
                             </div>
                             <div class="col-md-6">
                                 <label for="zipCode" class="form-label fw-semibold text-secondary">Zip Code</label>
                                 <input type="num" name="zipCode" id="zipCode" class="form-control bg-light"
                                     maxlength="4">
-                                <p class="error_container"></p>
+                                <p class="error_container" name="zipCode"></p>
                             </div>
                         </div>
 
@@ -117,7 +117,7 @@
                             <button type="button" id="back2" class="btn btn-outline-secondary px-4">Back</button>
                             <div class="action_buttons">
                                 <button type="reset" class="btn btn-light border me-2">Reset</button>
-                                <button type="submit" id="submit_bttn" name="submit_bttn"
+                                <button type="buttton" id="submit_bttn" name="submit_bttn"
                                     class="btn btn-success px-4 fw-bold">Submit
                                     Form</button>
                             </div>
