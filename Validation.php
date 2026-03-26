@@ -241,10 +241,7 @@ if (isset($_POST['submit_bttn'])) {
     $Validlname = validatelname($lastName);
     $validbdate = validatebdate($birthday);
     // $validgender = validategender($gender);
-    $validemail = validateEmail($email);
-    $validphone = validatephone($phone);
-    $validbarangay = validateBarangay($barangay);
-    $validZip = vaildateZipcode($zipcode);
+    
 
     $Validfname['isValid'];
     var_dump($Validfname['isValid']);

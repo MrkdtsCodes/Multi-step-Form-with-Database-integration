@@ -1,59 +1,95 @@
 <?php
 
-$json = file_get_contents("php://input");  // Taga-salo ng JSON
-$data = json_decode($json, true);          // Translator ni PHP
+$json = file_get_contents("php://input");  // Taga-salo ng JSON defaullt yan 
+$data = json_decode($json, true);
+// Translator ni PHP default din pang decode ng json object(js) --> json(php)
 
 // Makikita mo ang laman sa console kung papalitan mo ang JS mo ng .text() pansamantala
 
 
-if (isset($data)) {
+if (isset($data)) {  ///
 
-    $firstName = $data[0] ?? '';
-    $middleName = $data[1] ?? '';
-    $lastName = $data[2] ?? '';
-    $bdate = $data[3] ?? '';
-    $gender = $data[4] ?? '';
+    if ($data['form_stage'] == 1) {
 
-    $validatedName = validatename($firstName);
-    $validatemName = validateMname($middleName);
-    $validatLname = validatelname($lastName);
-    $validBdate = validatebdate($bdate);
-    $validgender = validategender($gender);
-
-    $errorbucket = [];
+        $firstName = $data[0] ?? ''; //optional kung walag data na natanggap empty ang lalgay niya 
+        $middleName = $data[1] ?? '';
+        $lastName = $data[2] ?? '';
+        $bdate = $data[3] ?? '';
+        $gender = $data[4] ?? '';
 
 
-    if ($validatedName['isValid'] === false) {
-        $errorbucket[] = $validatedName;
+        $validatedName = validatename($firstName);
+        $validatemName = validateMname($middleName);
+        $validatLname = validatelname($lastName);
+        $validBdate = validatebdate($bdate);
+        $validgender = validategender($gender);
+
+        $errorbucket = [];
+
+
+        if ($validatedName['isValid'] === false) {
+            $errorbucket[] = $validatedName;
+        }
+
+        if ($validatemName['isValid'] === false) {
+            $errorbucket[] = $validatemName;
+        }
+
+        if ($validatLname['isValid'] === false) {
+            $errorbucket[] = $validatLname;
+        }
+
+        if ($validBdate['isValid'] === false) {
+            $errorbucket[] = $validBdate;
+        }
+
+        if ($validgender['isValid'] === false) {
+            $errorbucket[] = $validgender;
+        }
+
+
+        //ngayong may laman na ang ating error bucket bilangan ang error kung meron 
+        //ibalik sa js
+
+        if (count($errorbucket) > 0) {
+            //gumawa g reply na ipapasa niya sa js yung mga errors na nakuha niyaSS
+            print json_encode($errorbucket);
+        } else {
+            $walanglamangerror = $errorbucket = [];
+            print json_encode($walanglamangerror); //nagbalik ako ng array na walang laman 
+        }
+
+
+    } else if ($data['form_stage'] == 2) {
+
+        $email = $_POST['email'] ?? '';
+        $phone = $_POST['phone'] ?? '';
+
+
+
+        $errorbucks = [];
+
+        $validateemail = validateEmail($email);
+        $validphone = validatephone($phone);
+
+        if ($validateemail['isValid'] === false) {
+            $errorbucks[] = $validateemail;
+        }
+
+        if ($validphone['isValid'] === false) {
+            $errorbucks[] = $validphone;
+        }
+
+        if (count($errorbucks) > 0) {
+            //gumawa g reply na ipapasa niya sa js yung mga errors na nakuha niyaSS
+            print json_encode($errorbucks);
+        } else {
+            $walanglamangerror = $errorbucks = [];
+            print json_encode($walanglamangerror); //nagbalik ako ng array na walang laman 
+        }
+
     }
 
-    if ($validatemName['isValid'] === false) {
-        $errorbucket[] = $validatemName;
-    }
-
-    if ($validatLname['isValid'] === false) {
-        $errorbucket[] = $validatLname;
-    }
-
-    if ($validBdate['isValid'] === false) {
-        $errorbucket[] = $validBdate;
-    }
-
-    if ($validgender['isValid'] === false) {
-        $errorbucket[] = $validgender;
-    }
-
-
-    //ngayong may laman na ang ating error bucket bilangan ang error kung meron 
-    //ibalik sa js
-
-    if (count($errorbucket) > 0) {
-        //gumawa g reply na ipapasa niya sa js yung mga errors na nakuha niyaSS
-        print json_encode($errorbucket);
-    } else {
-        $walanglamangerror = $errorbucket = [];
-        print json_encode($walanglamangerror); //nagbalik ako ng array na walang laman 
-    }
 
 }
 function validatename($name)
@@ -63,13 +99,13 @@ function validatename($name)
     if (trim($name) === "") {
         return [
             'fieldName' => 'fName',
-            'error' => "this is a Required Field",
+            'error' => "this is a Required Field*",
             'isValid' => false
         ];
     } else if (!preg_match($regexNames, $name)) {
         return [
             'fieldName' => 'fName',
-            'error' => "Invalid Format",
+            'error' => "Invalid Format*",
             'isValid' => false
         ];
     } else {
@@ -136,7 +172,7 @@ function validatelname($name)
 
 function validatebdate($Bdate)
 {
-    if (trim($Bdate) === "") {
+    if (($Bdate) === "") {
         return [
             'fieldName' => 'Bdate',
             'error' => "this is a Required Field",
@@ -153,10 +189,10 @@ function validatebdate($Bdate)
 
 function validategender($gender)
 {
-    if (trim($gender) === "") {
+    if (($gender) === "") {
         return [
             'fieldName' => 'gender',
-            'error' => "this is a Required Field",
+            'error' => "Please Select Gender",
             'isValid' => false
 
         ];

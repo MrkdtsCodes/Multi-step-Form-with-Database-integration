@@ -25,23 +25,23 @@
                             <div class="col-md-12">
                                 <label for="fName" class="form-label fw-semibold text-secondary">First Name</label>
                                 <input type="text" name="fName" id="fName" class="form-control bg-light">
-                                <p id="mark" class="error_container"></p>
+                                <p id="mark" class="error_container" name="fName"></p>
 
                             </div>
                             <div class="col-md-12">
                                 <label for="Mname" class="form-label fw-semibold text-secondary">Middle Name</label>
                                 <input type="text" name="Mname" id="Mname" class="form-control bg-light">
-                                <p class="error_container"></p>
+                                <p class="error_container" name="Mname"></p>
                             </div>
                             <div class="col-md-12">
                                 <label for="lname" class="form-label fw-semibold text-secondary">Last Name</label>
                                 <input type="text" name="lname" id="lname" class="form-control mark bg-light">
-                                <p class="error_container"></p>
+                                <p class="error_container" name="lname"></p>
                             </div>
                             <div class="col-md-6">
                                 <label for="Bdate" class="form-label fw-semibold text-secondary">Birth Date</label>
                                 <input type="date" name="Bdate" id="Bdate" class="form-control mark bg-light">
-                                <p class="error_container"></p>
+                                <p class="error_container" name="Bdate"></p>
                             </div>
                             <div class="col-md-6">
                                 <label for="gender" class="form-label fw-semibold text-secondary">Gender</label>
@@ -50,7 +50,7 @@
                                     <option value="male">Male</option>
                                     <option value="female">Female</option>
                                 </select>
-                                <p class="error_container"></p>
+                                <p class="error_container" name="gender"></p>
                             </div>
                         </div>
 
@@ -65,13 +65,13 @@
                             <div class="col-md-12">
                                 <label for="email" class="form-label fw-semibold text-secondary">Email Address</label>
                                 <input type="text" id="email" name="email" class="form-control bg-light">
-                                <p class="error_container"></p>
+                                <p class="error_container" name="email"></p>
                             </div>
                             <div class="col-md-12">
                                 <label for="phone" class="form-label fw-semibold text-secondary">Telephone
                                     Number</label>
                                 <input type="tel" id="phone" name="phone" class="form-control bg-light">
-                                <p class="error_container"></p>
+                                <p class="error_container" name="phone"></p>
                             </div>
                         </div>
 
